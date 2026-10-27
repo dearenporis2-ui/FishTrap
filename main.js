@@ -11,17 +11,48 @@ var IG_URL = 'https://www.instagram.com/explore/locations/1031876572/fishtrap-la
 var WA_URL = 'https://wa.me/2482512111?text=' + encodeURIComponent("Hello Fish Trap! I'd like to reserve a table."); // reservations via WhatsApp
 var MAP_URL = 'https://www.google.com/maps?q=-4.349401,55.828519';
 var PAGES = [['index.html','Home'],['story.html','Our story'],['food.html','Dining'],['menu.html','Menu'],['gallery.html','Gallery'],['visit.html','Visit']];
-// Gallery photos. preview:1 = shown in the home page accordion (use 3 or 4).
+// Gallery photos, in display order. preview:1 = shown in the home page accordion (use 3 or 4).
 var PHOTOS = [
-  {src:'plate-with-food.webp', alt:'Seafood plate served at Fish Trap Restaurant, La Digue', cap:'From the kitchen', preview:1},
-  {src:'inside-view.webp', alt:'Inside Fish Trap Restaurant & Bar with bamboo fish trap decor, La Passe, La Digue', cap:'Inside Fish Trap', preview:1},
-  {src:'the-overview-of-our-deck.webp', alt:'Sea-view deck at Fish Trap Restaurant & Bar, La Passe, La Digue', cap:'The deck', preview:1},
-  {src:'ocean-view.webp', alt:'Sea view from Fish Trap Restaurant & Bar, La Passe, La Digue, Seychelles', cap:'The view from the deck', preview:1},
-  {src:'plate-with-food-2.webp', alt:'Dish served at Fish Trap Restaurant, La Passe, La Digue', cap:'From the kitchen'},
-  {src:'inside-view-2.webp', alt:'Dining room at Fish Trap Restaurant & Bar, La Passe, La Digue', cap:'Inside Fish Trap'},
-  {src:'plate-with-food-3.webp', alt:'Plate of food at Fish Trap Restaurant & Bar, La Digue', cap:'From the kitchen'},
-  {src:'fish-trap-restaurant.webp', alt:'Fish Trap Restaurant & Bar in La Passe, La Digue', cap:'Fish Trap in La Passe'},
-  {src:'bikes.webp', alt:'Bicycles in La Passe, La Digue, Seychelles', cap:'La Digue bikes'}
+  {src:"grilled-whole-fish.jpeg", alt:"Grilled whole fish at Fish Trap Restaurant & Bar, La Digue", cap:"Grilled whole fish", preview:1},
+  {src:"the-overview-of-our-deck.webp", alt:"Sea-view deck at Fish Trap Restaurant & Bar, La Passe, La Digue", cap:"The deck", preview:1},
+  {src:"colorful-cocktail-trio.jpeg", alt:"Trio of colourful cocktails at the Fisherman's Bar, Fish Trap, La Digue", cap:"Colourful cocktails", preview:1},
+  {src:"assorted-sushi-sharing-platter.jpeg", alt:"Assorted sushi sharing platter at the Fish Trap Sushi Bar, La Passe, La Digue", cap:"Assorted sushi sharing platter", preview:1},
+  {src:"ocean-view.webp", alt:"Sea view from Fish Trap Restaurant & Bar, La Passe, La Digue, Seychelles", cap:"The view from the deck"},
+  {src:"plate-with-food.webp", alt:"Seafood plate served at Fish Trap Restaurant, La Digue", cap:"From the kitchen"},
+  {src:"yellow-tropical-cocktail.jpeg", alt:"Yellow tropical cocktail at the Fisherman's Bar, Fish Trap, La Digue", cap:"Yellow tropical cocktail"},
+  {src:"salmon-nigiri-and-sushi-rolls.jpeg", alt:"Salmon nigiri and sushi rolls at the Fish Trap Sushi Bar, La Passe, La Digue", cap:"Salmon nigiri and sushi rolls"},
+  {src:"inside-view.webp", alt:"Inside Fish Trap Restaurant & Bar with bamboo fish trap decor, La Passe, La Digue", cap:"Inside Fish Trap"},
+  {src:"grilled-seafood-with-fries.jpeg", alt:"Grilled seafood with fries at Fish Trap Restaurant & Bar, La Digue", cap:"Grilled seafood with fries"},
+  {src:"berry-cocktail.jpeg", alt:"Berry cocktail at the Fisherman's Bar, Fish Trap, La Digue", cap:"Berry cocktail"},
+  {src:"sushi-rolls-long-platter.jpeg", alt:"Long platter of sushi rolls at the Fish Trap Sushi Bar, La Passe, La Digue", cap:"Sushi rolls, long platter"},
+  {src:"plate-with-food-2.webp", alt:"Dish served at Fish Trap Restaurant, La Passe, La Digue", cap:"From the kitchen"},
+  {src:"fresh-seafood-salad.jpeg", alt:"Fresh seafood salad at Fish Trap Restaurant & Bar, La Digue", cap:"Fresh seafood salad"},
+  {src:"orange-cocktail.jpeg", alt:"Orange cocktail at the Fisherman's Bar, Fish Trap, La Digue", cap:"Orange cocktail"},
+  {src:"crispy-sushi-rolls-plated.jpeg", alt:"Crispy sushi rolls at the Fish Trap Sushi Bar, La Passe, La Digue", cap:"Crispy sushi rolls"},
+  {src:"inside-view-2.webp", alt:"Dining room at Fish Trap Restaurant & Bar, La Passe, La Digue", cap:"Inside Fish Trap"},
+  {src:"grilled-steak-with-vegetables.jpeg", alt:"Grilled steak with vegetables at Fish Trap Restaurant & Bar, La Digue", cap:"Grilled steak with vegetables"},
+  {src:"fresh-orange-juice.jpeg", alt:"Fresh orange juice at the Fisherman's Bar, Fish Trap, La Digue", cap:"Fresh orange juice"},
+  {src:"salmon-sushi-roll-platter.jpeg", alt:"Salmon sushi roll platter at the Fish Trap Sushi Bar, La Passe, La Digue", cap:"Salmon sushi roll platter"},
+  {src:"plate-with-food-3.webp", alt:"Plate of food at Fish Trap Restaurant & Bar, La Digue", cap:"From the kitchen"},
+  {src:"seafood-rice-and-sides.jpeg", alt:"Seafood with rice and sides at Fish Trap Restaurant & Bar, La Digue", cap:"Seafood with rice and sides"},
+  {src:"sushi-roll-platter-conveyor.jpeg", alt:"Sushi roll platter at the Fish Trap Sushi Bar, La Passe, La Digue", cap:"Sushi roll platter"},
+  {src:"grilled-seafood-rice-platter.jpeg", alt:"Grilled seafood and rice platter at Fish Trap Restaurant & Bar, La Digue", cap:"Grilled seafood rice platter"},
+  {src:"fish-trap-restaurant.webp", alt:"Fish Trap Restaurant & Bar in La Passe, La Digue", cap:"Fish Trap in La Passe"},
+  {src:"assorted-sushi-platter.jpeg", alt:"Assorted sushi platter at the Fish Trap Sushi Bar, La Passe, La Digue", cap:"Assorted sushi platter"},
+  {src:"plated-seafood-salad.jpeg", alt:"Plated seafood salad at Fish Trap Restaurant & Bar, La Digue", cap:"Plated seafood salad"},
+  {src:"crispy-sushi-rolls-with-salmon-1.jpeg", alt:"Crispy sushi rolls with salmon at the Fish Trap Sushi Bar, La Passe, La Digue", cap:"Crispy rolls with salmon"},
+  {src:"fresh-green-salad-bowl.jpeg", alt:"Fresh green salad bowl at Fish Trap Restaurant & Bar, La Digue", cap:"Fresh green salad"},
+  {src:"sushi-rolls-with-salmon-plated.jpeg", alt:"Plated sushi rolls with salmon at the Fish Trap Sushi Bar, La Passe, La Digue", cap:"Sushi rolls with salmon"},
+  {src:"fried-snacks-with-dipping-sauce.jpeg", alt:"Fried snacks with dipping sauce at Fish Trap Restaurant & Bar, La Digue", cap:"Fried snacks with dipping sauce"},
+  {src:"sushi-and-fries-sharing-platter.jpeg", alt:"Sushi and fries sharing platter at the Fish Trap Sushi Bar, La Passe, La Digue", cap:"Sushi and fries sharing platter"},
+  {src:"golden-fried-pastries.jpeg", alt:"Golden fried pastries at Fish Trap Restaurant & Bar, La Digue", cap:"Golden fried pastries"},
+  {src:"crispy-sushi-rolls-with-salmon-2.jpeg", alt:"Crispy sushi rolls with salmon at the Fish Trap Sushi Bar, La Passe, La Digue", cap:"Crispy rolls with salmon"},
+  {src:"fries-and-fried-seafood.jpeg", alt:"Fries and fried seafood at Fish Trap Restaurant & Bar, La Digue", cap:"Fries and fried seafood"},
+  {src:"crispy-sushi-rolls-closeup.jpeg", alt:"Close-up of crispy sushi rolls at the Fish Trap Sushi Bar, La Passe, La Digue", cap:"Crispy sushi rolls, close up"},
+  {src:"colorful-side-salad.jpeg", alt:"Colourful side salad at Fish Trap Restaurant & Bar, La Digue", cap:"Colourful side salad"},
+  {src:"grilled-meal-with-fries.jpeg", alt:"Grilled meal with fries at Fish Trap Restaurant & Bar, La Digue", cap:"Grilled meal with fries"},
+  {src:"sushi-display-case.jpeg", alt:"The sushi display case at the Fish Trap Sushi Bar, La Passe, La Digue", cap:"The sushi display case"},
+  {src:"bikes.webp", alt:"Bicycles in La Passe, La Digue, Seychelles", cap:"La Digue bikes"}
 ];
 
 var html = document.documentElement, body = document.body;
@@ -205,32 +236,22 @@ document.addEventListener('keydown', function(e){
 /* ===== Masonry (gallery page) ===== */
 var masonry = (function(){
   var list = document.getElementById('mlist'); if(!list) return null;
-  var items = [], built = false;
-  function ratios(){
-    return Promise.all(PHOTOS.map(function(p, i){
-      return new Promise(function(res){
-        var im = new Image();
-        im.onload = function(){ res({i:i, ratio: Math.min(1.5, Math.max(.65, im.naturalHeight / im.naturalWidth))}); };
-        im.onerror = function(){ res(null); };
-        im.src = 'images/' + p.src;
-      });
-    }));
-  }
-  function build(rs){
-    rs.forEach(function(o){
-      if(!o) return;
-      var p = PHOTOS[o.i], w = document.createElement('div');
-      w.className = 'm-item'; w.tabIndex = 0; w.setAttribute('role','button'); w.setAttribute('aria-label','View photo: ' + p.cap);
-      w.innerHTML = '<div class="m-img"><img alt="" loading="lazy" draggable="false"></div>';
-      var mi = w.querySelector('img'); mi.src = 'images/' + p.src; mi.alt = p.alt || p.cap;
-      w.addEventListener('click', function(){ openLb(o.i); });
-      w.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openLb(o.i); } });
-      w.addEventListener('mouseenter', function(){ if(window.gsap) gsap.to(w, {scale:.95, duration:.3, ease:'power2.out'}); });
-      w.addEventListener('mouseleave', function(){ if(window.gsap) gsap.to(w, {scale:1, duration:.3, ease:'power2.out'}); });
-      list.appendChild(w); items.push({el:w, ratio:o.ratio});
-    });
-    built = true;
-  }
+  var items = [], timer = null, started = false;
+  PHOTOS.forEach(function(p, i){
+    var w = document.createElement('div'), it = {el:w, ratio:.8};
+    w.className = 'm-item'; w.tabIndex = 0; w.setAttribute('role','button'); w.setAttribute('aria-label','View photo: ' + p.cap);
+    w.innerHTML = '<div class="m-img"><img alt="" loading="lazy" draggable="false"></div>';
+    var im = w.querySelector('img'); im.alt = p.alt || p.cap;
+    im.onload = function(){ it.ratio = Math.min(1.5, Math.max(.65, im.naturalHeight / im.naturalWidth)); schedule(); };
+    im.onerror = function(){ var k = items.indexOf(it); if(k > -1) items.splice(k, 1); w.remove(); schedule(); };
+    im.src = 'images/' + p.src;
+    w.addEventListener('click', function(){ openLb(i); });
+    w.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openLb(i); } });
+    w.addEventListener('mouseenter', function(){ if(window.gsap) gsap.to(w, {scale:.95, duration:.3, ease:'power2.out'}); });
+    w.addEventListener('mouseleave', function(){ if(window.gsap) gsap.to(w, {scale:1, duration:.3, ease:'power2.out'}); });
+    list.appendChild(w); items.push(it);
+  });
+  function schedule(){ if(!started) return; clearTimeout(timer); timer = setTimeout(function(){ layout(false); }, 150); }
   function layout(intro){
     var W = list.clientWidth; if(!W || !items.length) return;
     var c = innerWidth >= 1000 ? 4 : innerWidth >= 600 ? 3 : 2, cw = W / c, hs = [];
@@ -245,15 +266,14 @@ var masonry = (function(){
       if(!window.gsap){ it.el.style.cssText += ';opacity:1;transform:translate('+it.x+'px,'+it.y+'px);width:'+it.w+'px;height:'+it.h+'px'; return; }
       if(intro && !REDUCE){
         gsap.fromTo(it.el, {opacity:0, x:it.x, y:it.y + 160, width:it.w, height:it.h, filter:'blur(10px)'},
-          Object.assign({opacity:1, filter:'blur(0px)', duration:.8, ease:'power3.out', delay: idx * .05}, to));
+          Object.assign({opacity:1, filter:'blur(0px)', duration:.8, ease:'power3.out', delay: Math.min(idx, 12) * .05}, to));
       } else {
         gsap.to(it.el, Object.assign({opacity:1, duration: intro ? 0 : .6, ease:'power3.out', overwrite:'auto'}, to));
       }
     });
   }
-  var ready = ratios().then(build);
-  addEventListener('resize', function(){ if(built) layout(false); });
-  return {ready: ready, intro: function(){ ready.then(function(){ layout(true); }); }};
+  addEventListener('resize', function(){ if(started) layout(false); });
+  return {ready: Promise.resolve(), intro: function(){ started = true; layout(true); }};
 })();
 
 /* ===== Scroll motion: parallax + reveals (starts once the loader lifts) ===== */
@@ -293,7 +313,9 @@ function startMotion(){
   var urls = ['images/leaf-pattern.webp'];
   (body.getAttribute('data-preload') || '').split(',').forEach(function(t){
     t = t.trim(); if(!t) return;
-    if(t === 'photos') PHOTOS.forEach(function(p){ urls.push('images/' + p.src); }); else urls.push(t);
+    if(t === 'photos') PHOTOS.slice(0, 8).forEach(function(p){ urls.push('images/' + p.src); });
+    else if(t === 'preview') PHOTOS.filter(function(p){ return p.preview; }).forEach(function(p){ urls.push('images/' + p.src); });
+    else urls.push(t);
   });
   document.querySelectorAll('img[src]').forEach(function(im){ urls.push(im.getAttribute('src')); });
   urls = urls.filter(function(u, i){ return urls.indexOf(u) === i; });
