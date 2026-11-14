@@ -2,7 +2,7 @@
 'use strict';
 
 /* ===== Settings you may want to change ===== */
-var BOAT_URL = 'https://carlexcursion.com/'; // boat excursions site (temporary GitHub link, change when the final address is ready)
+var BOAT_URL = 'https://carlexcursion.com/'; // boat excursions site
 var PHONE = '+248 263 6100', PHONE_HREF = 'tel:+2482636100';
 var EMAIL = 'fishtraprestaurant@seychelles.net';
 var TA_URL = 'https://www.tripadvisor.com/Restaurant_Review-g477968-d8285879-Reviews-Fish_Trap_Restaurant_Bar-La_Digue_Island.html';
